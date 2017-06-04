@@ -1,5 +1,10 @@
 <?php
 session_start();
+//log anyone out if the person trying to access this page is not loged in already
+if (!isset($_SESSION['user_id'])) {
+ header("Location: signin.php");
+ exit();
+}
 //create a task
 require_once("connection.php");
 
@@ -31,8 +36,6 @@ require_once("connection.php");
             // }
       		}
 
-      		
-
 
       		else{
 				
@@ -55,7 +58,7 @@ require_once("connection.php");
             			$tId = $row['id'];
             				$userId = $_SESSION['user_id'];
             			//update the create task table with the user and the task just created
-            			$taskCreator = "insert into taskcreators(task_id,user_id) values('$tId','$userId')";
+            			$taskCreator = "insert into taskcreators(task_id,user_id,created_at) values('$tId','$userId',now())";
             				if(mysqli_query($db,$taskCreator))
             					echo "success creating creator";
             				else {
@@ -64,7 +67,7 @@ require_once("connection.php");
 
 						mysqli_close($db);
 				echo "inserted";
-				     // header("Location: signin.php");
+     // header("Location: signin.php");
 		}
 }
 ?>
