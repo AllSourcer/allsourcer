@@ -36,8 +36,6 @@ require_once("connection.php");
             // }
       		}
 
-      		
-
 
       		else{
 				
@@ -60,7 +58,7 @@ require_once("connection.php");
             			$tId = $row['id'];
             				$userId = $_SESSION['user_id'];
             			//update the create task table with the user and the task just created
-            			$taskCreator = "insert into taskcreators(task_id,user_id,created_at) values('$tId','$userId',".now().")";
+            			$taskCreator = "insert into taskcreators(task_id,user_id,created_at) values('$tId','$userId',now())";
             				if(mysqli_query($db,$taskCreator))
             					echo "success creating creator";
             				else {
