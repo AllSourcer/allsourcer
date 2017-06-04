@@ -1,5 +1,7 @@
-<html>
 
+
+
+<html>
 
 <head>
 	<title> Project Alpha </title>
@@ -155,7 +157,7 @@
 	<script>
 
 		function viewtask() {
-			window.location.replace("pages/index.html");
+			window.location.replace("pages/");
 		} /*
 		for(var i=0;i<4;++i) {
 			var content = document.createElement("div");
