@@ -1,6 +1,7 @@
 <?php
+  session_start();
    include("connection.php");
-   session_start();
+ 
    
       
        if (isset($_POST['submit'])){
@@ -13,8 +14,8 @@
             $password = mysqli_real_escape_string($db,$_POST['password']); 
          else $errors = "please input password";
 
-         if(!empty($errors))
-            foreach ($erors as $key ) {
+         if(!empty($errors)){
+            foreach ($errors as $key ) 
                echo $key;
             }
          else{
@@ -31,9 +32,8 @@
             // if there is a match
       		
             if($count == 1) {
-               session_start();
-              // session_register("username");
-               $_SESSION['username'] = $row['id'];
+               $_SESSION['user_id'] = $row['id'];
+               $_SESSION['username'] =$row['name'];
                $_SESSION['login_user'] = $row['email'];
                $_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
                
