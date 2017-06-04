@@ -22,7 +22,7 @@ require_once("connection.php");
       		$confirmPass = mysqli_real_escape_string($db,$_POST['passwordConfirm']); 
       	else $errors = "you have not entered comfirm password";
       		if (!empty($errors)) {
-      			foreach ($erors as $key ) 
+      			foreach ($errors as $key ) 
                		echo $key;
       		}
       		else{
@@ -37,7 +37,7 @@ require_once("connection.php");
 
 						mysqli_close($db);
 			
-				     // header("Location: signin.php");
+				    header("Location: signin.php");
 				}
 				else{
 					echo "Passwords did not match";

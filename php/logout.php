@@ -1,7 +1,7 @@
 <?php
    session_start();
-   //destroy the session and redirect the user to the login page
+   //destroy the session and redirect the user to the login pag
    if(session_destroy()) {
-      header("Location: login.php");
+      header("Location: signin.php");
    }
 ?>
