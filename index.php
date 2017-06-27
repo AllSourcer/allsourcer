@@ -1,6 +1,33 @@
+
+<?php
+session_start(); // Start the session.
+require_once("connection.php");
+ // If no session value is  present,
+if (!isset($_SESSION['user_id'])) {
+ header("Location: signin.php");
+ exit();
+}
+else {
+//you are loged in 
+ $page_title = 'Logged In!';
+//log out page link
+ echo "<p><a href=\"logout.php\">Logout</a></p>";
+
+ //display the tasks that exist on the dashboard
+ $query = "select * from tasks";
+
+							 $status = mysqli_query($db,$query);
+							if(!$status)
+	                			die("task query failed"). mysqli_error();
+	            			$row = mysqli_fetch_array($status,MYSQLI_ASSOC);
+	            			print_r($row);
+
+	            			mysqli_close();
+}
+?>
+
+<!DOCTYPE html>
 <html>
-
-
 <head>
 	<title> Project Alpha </title>
 
@@ -67,6 +94,7 @@
 				<a class="mdl-navigation__link" href="">Link</a>
 				<a class="mdl-navigation__link" href="">Link</a>
 				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="logout.php"> logout</a>
 			</nav>
 		</div>
 
@@ -81,14 +109,16 @@
 							<div id="starter" class="mdl-grid">
 
 
-								<?php for($i=0;$i<10;$i++) { ?>
+								<?php while ($row) {
+									# code...
+								} { ?>
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
 										<div class="mdl-card mdl-shadow--4dp">
 											<div class="mdl-card__title">
-												<h2 class="mdl-card__title-text"><?php echo "$i"; ?></h2>
+												<h2 class="mdl-card__title-text"><?php $row['title']; ?></h2>
 											</div>
 											<div class="mdl-card__supporting-text">
-												A short but well detailed introduction into what this task actually is all about.
+												<?php $row['description']; ?>
 											</div>
 											<div class="mdl-card__actions">
 												<button onclick="viewtask()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
@@ -115,7 +145,7 @@
 						<div class="row"><h6>Top Unclaimed Task</h6></div>
 							<div class="row">
 								<div style="" class="mdl-grid">
-
+									
 									<?php for($i=0;$i<2;$i++) { ?>
 										<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
 											<div class="mdl-card mdl-shadow--4dp">

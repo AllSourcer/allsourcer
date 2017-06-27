@@ -1,3 +1,22 @@
+<?php
+session_start(); // Start the session.
+require_once("connection.php");
+ // If no session value is  present,
+if (!isset($_SESSION['user_id'])) {
+ header("Location: signin.php");
+ exit();
+}
+else {
+//you are loged in 
+ $page_title = 'Logged In!';
+//log out page link
+ echo "<p><a href=\"logout.php\">Logout</a></p>";
+
+ //display the tasks that exist on the dashboard
+
+ 
+}
+?>
 <!doctype html>
 <!--
   Material Design Lite
@@ -79,21 +98,27 @@
       </header>
       <div class="demo-ribbon"></div>
       <main class="demo-main mdl-layout__content">
-        <div class="demo-container mdl-grid">
-          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <div class="demo-crumbs mdl-color-text--grey-500">
-              Google &gt; Material Design Lite &gt; How to install MDL
-            </div>
-            <h3>How to install MDL</h3>
-              <p>
-                Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.
-              </p>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><a href="claimTask.php">Claim!</a></button>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Comment...</button>
-          </div>
 
-        </div>
+      <?php
+            
+              if (isset($_POST['taskId'])){
+                $id = $_POST['taskId'];
+              $query = "select * from tasks where id = ".(int)$id;
+
+               $status = mysqli_query($db,$query);
+              if(!$status)
+                        die("task query failed"). mysqli_error();
+                  $row = mysqli_fetch_array($status,MYSQLI_ASSOC) 
+                    
+                
+              print_r($row);
+    
+               
+            }
+            else echo "Error processing the request pleas try a gain later";
+      ?>
+
+
         <footer class="demo-footer mdl-mini-footer">
           <div class="mdl-mini-footer--left-section">
             <ul class="mdl-mini-footer--link-list">

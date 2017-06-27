@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 
 			$userId = $_SESSION['user_id'];
 	            			//update the create task table with the user and the task just created
-            			$taskClaimer = "insert into taskclaims(task_id,user_id) values('$taskId','$userId')";
+            			$taskClaimer = "insert into taskclaims(task_id,user_id,created_at) values('$taskId','$userId',now())";
             				if(mysqli_query($db,$taskClaimer))
             					echo "success claiming a task";
             				else {
