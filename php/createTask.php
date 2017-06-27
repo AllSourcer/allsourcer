@@ -36,8 +36,6 @@ require_once("connection.php");
             // }
       		}
 
-      		
-
 
       		else{
 				

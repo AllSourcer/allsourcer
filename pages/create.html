@@ -85,11 +85,77 @@
             <div class="demo-crumbs mdl-color-text--grey-500">
               Google &gt; Material Design Lite &gt; How to install MDL
             </div>
-            <h3>How to install MDL</h3>
-              <p>
-                Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.
-              </p>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><a href="claimTask.php">Claim!</a></button>
+            <h3>Create A Task</h3>
+              <!-- Textfield with Floating Label -->
+                <div style="" class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+
+
+                    <!-- List with avatar and controls -->
+                    <style>
+                    .demo-list-control {
+                      width: 300px;
+                    }
+
+                    .demo-list-radio {
+                      display: inline;
+                    }
+                    </style>
+
+                    <ul class="demo-list-control mdl-list">
+                      <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          <i class="material-icons  mdl-list__item-avatar">person</i>
+                          Technology
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                            <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input">
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+
+                    <ul class="demo-list-control mdl-list">
+                      <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          <i class="material-icons  mdl-list__item-avatar">person</i>
+                          Technology
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                            <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input">
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+                  </div>
+
+
+                  <!-- Floating Multiline Textfield -->
+                    <form action="#">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+                        <label class="mdl-textfield__label" for="sample5">Task Description</label>
+                      </div>
+                    </form>
+
+                  <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                    <form action="#">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="number" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Price (FCFA)</label>
+                      </div>
+                    </form>
+                    
+                  </div>
+
+
+                </div>
+
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Claim!</button>
               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Comment...</button>
           </div>
 

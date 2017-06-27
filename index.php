@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <?php
 session_start(); // Start the session.
@@ -28,6 +29,13 @@ else {
 
 <!DOCTYPE html>
 <html>
+=======
+
+
+
+<html>
+
+>>>>>>> 3d54286bf8778e16db82ea6ef9f1f4163b766d24
 <head>
 	<title> Project Alpha </title>
 
@@ -185,7 +193,7 @@ else {
 	<script>
 
 		function viewtask() {
-			window.location.replace("pages/index.html");
+			window.location.replace("pages/");
 		} /*
 		for(var i=0;i<4;++i) {
 			var content = document.createElement("div");
